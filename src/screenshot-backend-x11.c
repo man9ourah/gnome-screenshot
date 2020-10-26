@@ -396,7 +396,7 @@ screenshot_backend_x11_get_pixbuf (ScreenshotBackend *backend,
     mask_monitors (screenshot, root);
 
 #ifdef HAVE_X11_EXTENSIONS_SHAPE_H
-  if (wm != None)
+  if (wm != None && 0)
     {
       XRectangle *rectangles;
       int rectangle_count, rectangle_order, i;

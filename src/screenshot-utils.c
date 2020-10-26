@@ -74,7 +74,7 @@ screenshot_get_pixbuf (GdkRectangle *rectangle)
   g_autoptr (ScreenshotBackend) backend = NULL;
 
 #ifdef HAVE_X11
-  force_fallback = g_getenv ("GNOME_SCREENSHOT_FORCE_FALLBACK") != NULL;
+  force_fallback = TRUE;// g_getenv ("GNOME_SCREENSHOT_FORCE_FALLBACK") != NULL;
 #endif
 
   if (!force_fallback)
