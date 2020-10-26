@@ -22,28 +22,28 @@ if desktop_file_validate.found()
   )
 endif
 
-metainfo_file = i18n.merge_file(
-  'appdata',
-  input: 'org.gnome.Screenshot.metainfo.xml.in',
-  output: 'org.gnome.Screenshot.metainfo.xml',
-  po_dir: join_paths(meson.current_source_dir(), '../po'),
-  install: true,
-  install_dir: gnome_screenshot_appdatadir
-)
+#metainfo_file = i18n.merge_file(
+#  'appdata',
+#  input: 'org.gnome.Screenshot.metainfo.xml.in',
+#  output: 'org.gnome.Screenshot.metainfo.xml',
+#  po_dir: join_paths(meson.current_source_dir(), '../po'),
+#  install: true,
+#  install_dir: gnome_screenshot_appdatadir
+#)
 
-# Validate metainfo
-appstream_util = find_program('appstream-util', required: false)
-if appstream_util.found()
-  test(
-    'validate-metainfo',
-    appstream_util,
-    args: [
-      'validate',
-      '--nonet',
-      metainfo_file.full_path()
-    ]
-  )
-endif
+## Validate metainfo
+#appstream_util = find_program('appstream-util', required: false)
+#if appstream_util.found()
+#  test(
+#    'validate-metainfo',
+#    appstream_util,
+#    args: [
+#      'validate',
+#      '--nonet',
+#      metainfo_file.full_path()
+#    ]
+#  )
+#endif
 
 service_conf = configuration_data()
 service_conf.set('bindir', gnome_screenshot_bindir)
