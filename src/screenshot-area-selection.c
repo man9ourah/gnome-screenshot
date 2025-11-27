@@ -186,6 +186,7 @@ create_select_window (void)
   visual = gdk_screen_get_rgba_visual (screen);
 
   window = gtk_window_new (GTK_WINDOW_POPUP);
+  gtk_window_set_title(GTK_WINDOW(window), "screenshot-area");
   if (gdk_screen_is_composited (screen) && visual)
     {
       gtk_widget_set_visual (window, visual);

@@ -402,6 +402,9 @@ copy_clicked_cb (ScreenshotDialog      *dialog,
                  ScreenshotApplication *self)
 {
   screenshot_save_to_clipboard (self);
+  
+  GList *windows = gtk_application_get_windows (GTK_APPLICATION (self));
+  gtk_widget_destroy (g_list_nth_data (windows, 0));
 }
 
 static void
@@ -833,6 +836,8 @@ screenshot_application_startup (GApplication *app)
 
   gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.help", help_accels);
   gtk_application_set_accels_for_action (GTK_APPLICATION (self), "app.quit", quit_accels);
+
+  g_application_hold (G_APPLICATION (self));
 }
 
 static void
